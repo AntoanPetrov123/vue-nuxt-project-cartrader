@@ -11,6 +11,8 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.1.3"
+    "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
+    "@nuxtjs/tailwindcss": "^6.1.3",
+    "@vueuse/nuxt": "^9.6.0"
   }
 }
