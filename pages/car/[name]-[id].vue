@@ -1,21 +1,19 @@
 <script setup>
 
 //composable for reusing the function
+import useFetchCar from "~/composables/useFetchCar";
+
 const { toTitleCase } = useUnilities();
 
 const {cars} = useCar();
 const route = useRoute();
 
+//get current car object
+const { data: car } = await useFetchCar(route.params.id);
+
 //change name of the page
 useHead({
     title: toTitleCase(route.params.name),
-});
-
-//get current car object
-const car = computed(() => {
-  return cars.find((c) => {
-      return c.id === parseInt(route.params.id);
-  })
 });
 
 if(!car.value) {

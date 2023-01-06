@@ -8,6 +8,7 @@
           <NuxtLink class="text-1.6xl font-mono" to="/city/Sofia/car">Home</NuxtLink>
           <NuxtLink class="text-1.6xl font-mono" to="/login">Login</NuxtLink>
           <NuxtLink class="text-1.6xl font-mono" to="/register">Register</NuxtLink>
+          <NuxtLink class="text-1.6xl font-mono" to="/profile/listings">Profile</NuxtLink>
           <NuxtLink class="text-1.6xl font-mono" to="/">Logout</NuxtLink>
       </div>
   </header>

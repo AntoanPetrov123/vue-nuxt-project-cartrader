@@ -1,6 +1,9 @@
 <script setup>
+// const { cars } = useCar();
 
-const { cars } = useCar();
+const props = defineProps({
+    cars: Array
+})
 
 //create object in local storage for favourite cars
 const favourite = useLocalStorage("favourite", {});
