@@ -4,6 +4,7 @@ export default defineNuxtConfig({
         "@nuxtjs/tailwindcss",
         // we can use NuxtImg to optimise img attributes
         "@nuxt/image-edge",
-        "@vueuse/nuxt"
+        "@vueuse/nuxt",
+        //database connection
     ]
 })
