@@ -1,0 +1,24 @@
+-- POST --
+http://localhost:3000/api/car/listings
+example data:
+{
+    "year": 2018,
+    "name": "Range Rover",
+    "price": 84777,
+    "city": "Toronto",
+    "make": "Land Rover",
+    "image": "https://www.carhelpcanada.com/wp-content/uploads/2019/12/2020-Range-Rover-Evoque-2.jpg",
+    "numberOfSeats": 5,
+    "miles": 14666,
+    "features": ["No Accidents", "Low KM", "Vehicle Detailed", "Leather Interior"],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis odio et laboriosam!",
+    "model" : "test-mode",
+    "numberOfSeats": 5,
+    "listerId": "432" //this is manual userID
+ }
+
+ -- GET --
+ http://localhost:3000/api/car/listings/user/432
+
+ -- Delete --
+ http://localhost:3000/api/car/listings/:carId
