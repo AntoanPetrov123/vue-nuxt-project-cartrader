@@ -6,5 +6,6 @@ export default defineNuxtConfig({
         "@nuxt/image-edge",
         "@vueuse/nuxt",
         //database connection
+        "@nuxtjs/supabase"
     ]
 })
