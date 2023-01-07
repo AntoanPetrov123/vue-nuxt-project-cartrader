@@ -1,5 +1,4 @@
 // Create, Get, Delete a car
-
 -- POST --
 http://localhost:3000/api/car/listings
 example data:
@@ -27,6 +26,10 @@ example data:
 
 
  //Send and get messages
-
  -- Post --
  http://localhost:3000/api/car/listings/:carId/message
+
+
+ //Get filtered cars
+ -- GET --
+ http://localhost:3000/api/cars/sofia?make=Toyota&minPrice=100&maxPrice=500
