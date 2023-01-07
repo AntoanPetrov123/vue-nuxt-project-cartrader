@@ -1,3 +1,5 @@
+// Create, Get, Delete a car
+
 -- POST --
 http://localhost:3000/api/car/listings
 example data:
@@ -22,3 +24,9 @@ example data:
 
  -- Delete --
  http://localhost:3000/api/car/listings/:carId
+
+
+ //Send and get messages
+
+ -- Post --
+ http://localhost:3000/api/car/listings/:carId/message

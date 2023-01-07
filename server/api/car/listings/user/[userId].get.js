@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export default defineEventHandler(async(event) => {
     const { userId } = event.context.params;
 
-    //to do fix findMany
+    //to do find why findMany is underlined
     return prisma.car.findMany({
         where: {
             listerId: userId
@@ -16,5 +16,5 @@ export default defineEventHandler(async(event) => {
             name: true,
             price: true
         }
-    })
+    });
 });
