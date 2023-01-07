@@ -28,9 +28,9 @@
   >
       <img class="absolute w-7 right-5 top-2 z-20" :src="favored  ? filledStar : outlineStar" alt="star" @click="emit('favor', car.id)" />
     <div class="flex h-full"  @click="handleDetails">
-      <NuxtImg
-          :src="car.url"
-          :alt="car.name"
+      <img
+          :src="car.image"
+          alt=""
           class="w-[300px] h-full"
       />
       <div class="p-4 flex flex-col">
