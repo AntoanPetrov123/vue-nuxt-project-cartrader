@@ -3,7 +3,23 @@ definePageMeta({
   layout: "custom",
 });
 
-const { listings } = useCar();
+const user = useSupabaseUser();
+
+const { data: listings, refresh } = await useFetch(
+    // `/api/car/listings/user/${user.value.id}`
+    `/api/car/listings/user/${"432"}`
+);
+
+const handleDelete = async (id) => {
+    let confirmMessage = confirm("Are you sure to delete this?");
+
+    if (confirmMessage) {
+        await $fetch(`/api/car/listings/${id}`, {
+            method: "DELETE"
+        });
+        listings.value = listings.value.filter(li => li.id !== id);
+    }
+};
 </script>
 
 <template>
@@ -32,6 +48,7 @@ const { listings } = useCar();
         v-for="listing in listings"
         :key="listing.id"
         :listing="listing"
+        @delete-click="handleDelete(listing.id)"
       />
     </div>
   </div>
