@@ -4,7 +4,8 @@ definePageMeta({
 });
 
 const { makes } = useCar();
-const user = useSupabaseUser();
+// const user = useSupabaseUser();
+
 const errorMessage = ref("");
 
 const info = useState("adInfo", () => {
@@ -18,7 +19,7 @@ const info = useState("adInfo", () => {
     seats: "",
     features: "",
     description: "",
-    image: "no-image-already",
+    image: "",
   };
 });
 
@@ -69,6 +70,12 @@ const inputs = [
     name: "features",
     placeholder: "Leather Interior, No Accidents",
   },
+    {
+        id: 8,
+        title: "Image *",
+        name: "image",
+        placeholder: "http://image-url",
+    },
 ];
 
 const isButtonDisabled = computed(() => {
@@ -82,6 +89,7 @@ const isButtonDisabled = computed(() => {
 
 //submit create car post method
 const handleSubmit = async () => {
+
     const body = {
         ...info.value,
         city: info.value.city.toLocaleLowerCase(),
@@ -93,7 +101,7 @@ const handleSubmit = async () => {
         name: `${info.value.make} ${info.value.model}`,
         // listerId: user.value.id,
         listerId: "432",
-        image: "no-image-already"
+        image: info.value.image
     };
 
     delete body.seats;
@@ -106,6 +114,8 @@ const handleSubmit = async () => {
         navigateTo('/profile/listings');
     } catch (error) {
         errorMessage.value = error.statusMessage;
+        //remove image
+        // await supabase.storage.from("images").remove(data.path);
         console.log(error);
     }
 }
@@ -138,7 +148,7 @@ const handleSubmit = async () => {
         placeholder=""
         @change-input="onChangeInput"
       />
-      <CarAdImage @change-input="onChangeInput" />
+<!--      <CarAdImage @change-input="onChangeInput" />-->
         <div>
             <button class="bg-blue-400 text-white rounded py-2 px-7 mt-2" :disabled="isButtonDisabled" @click="handleSubmit">Submit</button>
             <p v-if="errorMessage" class="mt-3 text-red-400">{{ errorMessage }}</p>
